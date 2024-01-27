@@ -22,4 +22,13 @@ public class PhoneBookTest {
         Assertions.assertEquals(3, actual);
     }
 
+    @Test
+    public void findByNumber() {
+        phoneBook.add("Marta", "12345");
+        phoneBook.add("Mark", "45678");
+        phoneBook.add("Julia", "98346");
+        String actual = phoneBook.findByNumber("12345");
+        Assertions.assertEquals("Marta", actual);
+    }
+
 }
