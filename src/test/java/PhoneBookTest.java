@@ -31,4 +31,18 @@ public class PhoneBookTest {
         Assertions.assertEquals("Marta", actual);
     }
 
+    @Test
+    public void findByNumberNull() {
+        phoneBook.add("Marta", "12345");
+        phoneBook.add("Mark", "45678");
+        phoneBook.add("Julia", "98346");
+        String actual = phoneBook.findByNumber("15745");
+        Assertions.assertEquals(null, actual);
+    }
+
+    @Test
+    public void findByNumberEmpty() {
+        String actual = phoneBook.findByNumber("12345");
+        Assertions.assertEquals(null, actual);
+    }
 }

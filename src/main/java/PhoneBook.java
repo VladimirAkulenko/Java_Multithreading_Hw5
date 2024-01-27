@@ -12,7 +12,10 @@ public class PhoneBook {
     }
 
     public String findByNumber(String phone) {
-        return null;
+        return phoneBook.entrySet().stream()
+                .filter(v -> v.getValue().equals(phone)).
+                map(Map.Entry::getKey).
+                findFirst().orElse(null);
     }
 
 }
