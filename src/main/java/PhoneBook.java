@@ -1,6 +1,14 @@
-public class PhoneBook {
+import java.util.Map;
+import java.util.TreeMap;
 
-    public int add (String name, String phone){
-        return 0;
+public class PhoneBook {
+    private Map<String, String> phoneBook = new TreeMap<>();
+
+    public int add(String name, String phone) {
+        if (!phoneBook.containsKey(name) && !phoneBook.containsValue(phone)) {
+            phoneBook.putIfAbsent(name, phone);
+        }
+        return phoneBook.size();
     }
+
 }

@@ -1,28 +1,25 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class PhoneBookTest {
 
+    PhoneBook phoneBook = new PhoneBook();
+
     @Test
-    public void add(){
-        PhoneBook phoneBook = new PhoneBook();
-        int expected = 3;
-        int actual;
+    public void add() {
         phoneBook.add("Marta", "12345");
         phoneBook.add("Mark", "45678");
-        actual = phoneBook.add("Alex", "60442");
-        assertEquals(expected, actual);
-        //assertEquals(String.format("Число контактов [%s] не соответствует заведенному [%s]", expected, actual),expected,actual);
+        int actual = phoneBook.add("Alex", "60442");
+        Assertions.assertEquals(3, actual);
     }
 
     @Test
-    public void addRepeatName(){
-
+    public void addRepeatName() {
+        phoneBook.add("Marta", "12345");
+        phoneBook.add("Mark", "45678");
+        phoneBook.add("Julia", "98346");
+        int actual = phoneBook.add("Mark", "60442");
+        Assertions.assertEquals(3, actual);
     }
 
-    @Test
-    public void addRepeatPhone(){
-
-    }
 }
