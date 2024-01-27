@@ -75,12 +75,19 @@ public class PhoneBookTest {
     }
 
     @Test
-    public void printAllNames(){
-        List<String> expected = new ArrayList<>(Arrays.asList("Marta", "Mark", "Julia"));
+    public void printAllNames() {
+        List<String> expected = new ArrayList<>(Arrays.asList("Julia", "Mark", "Marta"));
         phoneBook.add("Marta", "12345");
         phoneBook.add("Mark", "45678");
         phoneBook.add("Julia", "98346");
         List<String> actual = phoneBook.printAllNames();
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void printAllNamesEmpty() {
+        List<String> expected = new ArrayList<>();
+        List<String> actual = phoneBook.printAllNames();
+        Assertions.assertEquals(expected, actual);
     }
 }
